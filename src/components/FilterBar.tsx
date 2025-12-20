@@ -1,5 +1,5 @@
-import Tooltip from './Tooltip';
-import { CAUSE_TOOLTIPS } from '../data/organizations';
+
+
 
 interface FilterBarProps {
     causes: string[];
