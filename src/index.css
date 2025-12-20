@@ -1,22 +1,28 @@
 :root {
-  /* Premium Dark Palette */
+  /* Radiant Awareness Palette */
   --color-bg: 222 47% 11%;
-  /* #0f172a - Slate 900 */
+  /* #0F172A - Deep Slate (Slate 900) */
   --color-bg-alt: 217 33% 17%;
-  /* #1e293b - Slate 800 */
-  --color-primary: 250 80% 64%;
-  /* #7c3aed - Violet 600 */
-  --color-primary-hover: 250 80% 70%;
+  /* Slate 800 */
+  --color-primary: 27 96% 53%;
+  /* #F97316 - Vivid Orange (Orange 500) */
+  --color-primary-hover: 27 96% 60%;
   --color-text-main: 210 40% 98%;
-  /* Slate 50 */
+  /* #F8FAFC - Soft White (Slate 50) */
   --color-text-muted: 215 20% 65%;
   /* Slate 400 */
-  --color-accent: 160 84% 39%;
-  /* Emerald 600 */
+  --color-accent-awareness: 53 98% 64%;
+  /* #FDE047 - Luminous Yellow (Yellow 300) */
+  --color-accent-relief: 171 66% 50%;
+  /* #2DD4BF - Teal Glow (Teal 400) */
 
-  --glass-bg: rgba(30, 41, 59, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  /* Effects */
+  --glass-bg: rgba(15, 23, 42, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+
+  --glow-card-hover: inset 0 0 20px rgba(253, 224, 71, 0.05), 0 20px 25px -5px rgba(249, 115, 22, 0.15);
+  --glow-text: 0 0 30px rgba(253, 224, 71, 0.2);
 
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
 
@@ -41,6 +47,35 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Light Leaks (Ambient Background) */
+body::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: -10%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle at center, hsla(var(--color-primary), 0.15), transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -20%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle at center, hsla(var(--color-accent-relief), 0.1), transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 a {
@@ -113,10 +148,9 @@ h4 {
 
 h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  background: linear-gradient(to right, #fff, #94a3b8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: hsl(var(--color-text-main));
+  /* Remove gradient for new theme or update it */
+  text-shadow: var(--glow-text);
 }
 
 h2 {

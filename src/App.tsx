@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Glossary from './components/Glossary'
 import FilterBar from './components/FilterBar'
 import OrganizationCard from './components/OrganizationCard'
 import { organizations, causes } from './data/organizations'
@@ -21,6 +22,8 @@ function App() {
       <main style={{ paddingTop: '80px', minHeight: '100vh', paddingBottom: '4rem' }}>
         <Hero />
 
+        <Glossary />
+
         <section>
           <FilterBar
             causes={causes}
@@ -29,14 +32,14 @@ function App() {
           />
 
           <div className="container">
-            <div className="grid-cards animate-fade-in" key={selectedCause}>
+            <div className="grid-cards animate-fade-in" key={selectedCause} data-test="org-grid">
               {filteredOrgs.map(org => (
                 <OrganizationCard key={org.id} org={org} />
               ))}
             </div>
 
             {filteredOrgs.length === 0 && (
-              <div style={{ textAlign: 'center', padding: '4rem', color: 'hsl(var(--color-text-muted))' }}>
+              <div style={{ textAlign: 'center', padding: '4rem', color: 'hsl(var(--color-text-muted))' }} data-test="no-results-message">
                 No organizations found for this category yet.
               </div>
             )}

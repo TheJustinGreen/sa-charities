@@ -21,20 +21,27 @@ describe('App Integration', () => {
 
         // Initial state: ensure multiple types exist
         expect(screen.getByText('Gift of the Givers')).toBeInTheDocument(); // Humanitarian
-        expect(screen.getByText('SPCA South Africa')).toBeInTheDocument(); // Animals
+        expect(screen.getByText('Animal Anti-Cruelty League')).toBeInTheDocument(); // Animals
 
-        // Click "Animals" filter
+        // Click "Animals" filter (now a button, text might be in span or direct)
+        // Since we removed the icon, it's just the button.
         const animalsFilter = screen.getByRole('button', { name: 'Animals' });
         fireEvent.click(animalsFilter);
 
         // Verify filtering
         expect(screen.queryByText('Gift of the Givers')).not.toBeInTheDocument();
-        expect(screen.getByText('SPCA South Africa')).toBeInTheDocument();
+        expect(screen.getByText('Animal Anti-Cruelty League')).toBeInTheDocument();
 
         // Click "All" to reset
         const allFilter = screen.getByRole('button', { name: 'All' });
         fireEvent.click(allFilter);
 
         expect(screen.getByText('Gift of the Givers')).toBeInTheDocument();
+    });
+
+    it('renders the Glossary section', () => {
+        render(<App />);
+        expect(screen.getByText('Understanding the Suffering We Alleviate')).toBeInTheDocument();
+        expect(screen.getByText('Addresses acute suffering by providing essential resources like food, water, and shelter to those in immediate distress.')).toBeInTheDocument();
     });
 });
