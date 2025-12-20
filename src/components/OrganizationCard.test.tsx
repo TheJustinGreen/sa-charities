@@ -7,7 +7,9 @@ const mockOrg = {
     description: "Helping the world.",
     cause: "Humanitarian",
     website: "https://example.com",
-    imageUrl: "https://example.com/image.jpg"
+    imageUrl: "https://example.com/image.jpg",
+    tags: ["Test", "Mock"],
+    section18a: false
 };
 
 describe('OrganizationCard Component', () => {
