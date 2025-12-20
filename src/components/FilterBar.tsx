@@ -1,4 +1,10 @@
-export default function FilterBar({ causes, selectedCause, onSelectCause }) {
+interface FilterBarProps {
+    causes: string[];
+    selectedCause: string;
+    onSelectCause: (cause: string) => void;
+}
+
+export default function FilterBar({ causes, selectedCause, onSelectCause }: FilterBarProps) {
     return (
         <div className="container" style={{ marginBottom: '2rem', overflowX: 'auto' }}>
             <div style={{ display: 'flex', gap: '0.75rem', paddingBottom: '1rem' }}>

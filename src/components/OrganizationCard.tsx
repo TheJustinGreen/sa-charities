@@ -1,4 +1,10 @@
-export default function OrganizationCard({ org }) {
+import { Organization } from '../types';
+
+interface OrganizationCardProps {
+    org: Organization;
+}
+
+export default function OrganizationCard({ org }: OrganizationCardProps) {
     return (
         <div className="glass" style={{
             borderRadius: 'var(--radius-lg)',

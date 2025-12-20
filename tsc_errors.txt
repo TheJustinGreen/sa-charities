@@ -1,0 +1,7 @@
+yarn run v1.22.22
+$ C:\Users\ascentraland\Side\Altruistic\node_modules\.bin\tsc
+src/App.test.tsx(1,18): error TS2305: Module '"@testing-library/react"' has no exported member 'screen'.
+src/App.test.tsx(1,26): error TS2305: Module '"@testing-library/react"' has no exported member 'fireEvent'.
+src/components/OrganizationCard.test.tsx(1,18): error TS2305: Module '"@testing-library/react"' has no exported member 'screen'.
+error Command failed with exit code 2.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

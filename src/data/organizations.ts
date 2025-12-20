@@ -1,4 +1,6 @@
-export const organizations = [
+import { Organization } from '../types';
+
+export const organizations: Organization[] = [
     {
         id: 1,
         name: "Gift of the Givers",

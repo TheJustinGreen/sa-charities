@@ -4,11 +4,12 @@ import Hero from './components/Hero'
 import FilterBar from './components/FilterBar'
 import OrganizationCard from './components/OrganizationCard'
 import { organizations, causes } from './data/organizations'
+import { Organization } from './types'
 
 function App() {
-  const [selectedCause, setSelectedCause] = useState("All");
+  const [selectedCause, setSelectedCause] = useState<string>("All");
 
-  const filteredOrgs = useMemo(() => {
+  const filteredOrgs = useMemo<Organization[]>(() => {
     if (selectedCause === "All") return organizations;
     return organizations.filter(org => org.cause === selectedCause);
   }, [selectedCause]);

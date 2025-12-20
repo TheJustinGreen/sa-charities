@@ -1,0 +1,1 @@
+{"root":["./src/app.test.tsx","./src/app.tsx","./src/main.tsx","./src/setuptests.ts","./src/types.ts","./src/vite-env.d.ts","./src/components/filterbar.tsx","./src/components/header.tsx","./src/components/hero.tsx","./src/components/organizationcard.test.tsx","./src/components/organizationcard.tsx","./src/data/organizations.ts"],"version":"5.9.3"}
