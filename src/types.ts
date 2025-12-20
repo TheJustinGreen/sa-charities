@@ -5,4 +5,6 @@ export interface Organization {
     cause: string;
     website: string;
     imageUrl: string;
+    tags: string[];
+    section18a: boolean;
 }

@@ -9,11 +9,35 @@ import { Organization } from './types'
 
 function App() {
   const [selectedCause, setSelectedCause] = useState<string>("All");
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+  const availableTags = useMemo(() => {
+    if (selectedCause === "All") return [];
+    const tags = new Set<string>();
+    organizations
+      .filter(org => org.cause === selectedCause)
+      .forEach(org => org.tags.forEach(tag => tags.add(tag)));
+    return Array.from(tags).sort();
+  }, [selectedCause]);
 
   const filteredOrgs = useMemo<Organization[]>(() => {
-    if (selectedCause === "All") return organizations;
-    return organizations.filter(org => org.cause === selectedCause);
-  }, [selectedCause]);
+    let filtered = organizations;
+
+    if (selectedCause !== "All") {
+      filtered = filtered.filter(org => org.cause === selectedCause);
+    }
+
+    if (selectedTag) {
+      filtered = filtered.filter(org => org.tags.includes(selectedTag));
+    }
+
+    return filtered;
+  }, [selectedCause, selectedTag]);
+
+  const handleCauseSelect = (cause: string) => {
+    setSelectedCause(cause);
+    setSelectedTag(null);
+  };
 
   return (
     <div className="min-h-screen">
@@ -28,7 +52,10 @@ function App() {
           <FilterBar
             causes={causes}
             selectedCause={selectedCause}
-            onSelectCause={setSelectedCause}
+            onSelectCause={handleCauseSelect}
+            availableTags={availableTags}
+            selectedTag={selectedTag}
+            onSelectTag={setSelectedTag}
           />
 
           <div className="container">

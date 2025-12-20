@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import App from './App';
 
 describe('App Integration', () => {
@@ -24,16 +24,28 @@ describe('App Integration', () => {
         expect(screen.getByText('Animal Anti-Cruelty League')).toBeInTheDocument(); // Animals
 
         // Click "Animals" filter (now a button, text might be in span or direct)
-        // Since we removed the icon, it's just the button.
-        const animalsFilter = screen.getByRole('button', { name: 'Animals' });
+        const animalsFilter = screen.getByTestId('filter-btn-Animals');
         fireEvent.click(animalsFilter);
 
         // Verify filtering
         expect(screen.queryByText('Gift of the Givers')).not.toBeInTheDocument();
         expect(screen.getByText('Animal Anti-Cruelty League')).toBeInTheDocument();
 
+        // Verify sub-category tags appear
+        // e.g., "Welfare" should be visible when Animals is selected
+        // We scope this to the tag-filter-bar to avoiding finding the tag on the card itself
+        const filterBar = await screen.findByTestId('tag-filter-bar');
+        expect(within(filterBar).getByText('#Welfare')).toBeInTheDocument();
+
+        // Click a tag "Welfare"
+        const welfareTag = within(filterBar).getByText('#Welfare');
+        fireEvent.click(welfareTag);
+
+        // Should still show Animal Anti-Cruelty League
+        expect(screen.getByText('Animal Anti-Cruelty League')).toBeInTheDocument();
+
         // Click "All" to reset
-        const allFilter = screen.getByRole('button', { name: 'All' });
+        const allFilter = screen.getByTestId('filter-btn-All');
         fireEvent.click(allFilter);
 
         expect(screen.getByText('Gift of the Givers')).toBeInTheDocument();

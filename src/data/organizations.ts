@@ -9,6 +9,8 @@ export const organizations: Organization[] = [
         cause: "Humanitarian",
         website: "https://giftofthegivers.org/",
         imageUrl: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Disaster Relief", "Water", "Food Security"],
+        section18a: true
     },
     {
         id: 6,
@@ -17,6 +19,8 @@ export const organizations: Organization[] = [
         cause: "Humanitarian",
         website: "https://redcross.org.za/",
         imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Disaster Relief", "Healthcare", "Community"],
+        section18a: true
     },
     {
         id: 7,
@@ -25,6 +29,8 @@ export const organizations: Organization[] = [
         cause: "Humanitarian",
         website: "https://foodforwardsa.org/",
         imageUrl: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Food Security", "Sustainability"],
+        section18a: true
     },
     {
         id: 8,
@@ -33,6 +39,8 @@ export const organizations: Organization[] = [
         cause: "Humanitarian",
         website: "https://breadlineafrica.org/",
         imageUrl: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Infrastructure", "Children", "Education"],
+        section18a: true
     },
     {
         id: 9,
@@ -41,6 +49,8 @@ export const organizations: Organization[] = [
         cause: "Humanitarian",
         website: "https://www.thelunchboxfund.org/",
         imageUrl: "https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Food Security", "Children", "Education"],
+        section18a: true
     },
     {
         id: 10,
@@ -49,6 +59,8 @@ export const organizations: Organization[] = [
         cause: "Humanitarian",
         website: "https://actionaid.org.za/",
         imageUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Rights", "Women", "Children"],
+        section18a: true
     },
     {
         id: 11,
@@ -57,6 +69,8 @@ export const organizations: Organization[] = [
         cause: "Humanitarian",
         website: "https://www.unhcr.org/south-africa.html",
         imageUrl: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Refugees", "Shelter", "Rights"],
+        section18a: false
     },
 
     // Healthcare
@@ -67,6 +81,8 @@ export const organizations: Organization[] = [
         cause: "Healthcare",
         website: "https://www.sadag.org/",
         imageUrl: "https://images.unsplash.com/photo-1527137342181-19aab11a8ee8?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Mental Health", "Support"],
+        section18a: true
     },
     {
         id: 13,
@@ -75,6 +91,8 @@ export const organizations: Organization[] = [
         cause: "Healthcare",
         website: "https://www.msf.org.za/",
         imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Medical Aid", "HIV/TB", "Emergency"],
+        section18a: true
     },
     {
         id: 14,
@@ -83,6 +101,8 @@ export const organizations: Organization[] = [
         cause: "Healthcare",
         website: "https://m2m.org/",
         imageUrl: "https://images.unsplash.com/photo-1583911201153-aa17989fb7f4?auto=format&fit=crop&q=80&w=1000",
+        tags: ["HIV/AIDS", "Women", "Children"],
+        section18a: true
     },
     {
         id: 15,
@@ -91,6 +111,8 @@ export const organizations: Organization[] = [
         cause: "Healthcare",
         website: "https://cansa.org.za/",
         imageUrl: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Cancer", "Research", "Support"],
+        section18a: true
     },
     {
         id: 16,
@@ -99,6 +121,8 @@ export const organizations: Organization[] = [
         cause: "Healthcare",
         website: "https://apcc.org.za/",
         imageUrl: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Palliative Care", "Hospice"],
+        section18a: true
     },
 
     // Education
@@ -109,6 +133,8 @@ export const organizations: Organization[] = [
         cause: "Education",
         website: "https://www.cotlands.org/",
         imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Early Childhood", "Children", "Play"],
+        section18a: true
     },
     {
         id: 17,
@@ -117,6 +143,8 @@ export const organizations: Organization[] = [
         cause: "Education",
         website: "https://help2read.org/",
         imageUrl: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Literacy", "Children"],
+        section18a: true
     },
     {
         id: 18,
@@ -125,6 +153,8 @@ export const organizations: Organization[] = [
         cause: "Education",
         website: "https://earthchildproject.org/",
         imageUrl: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Environment", "Children", "Wellness"],
+        section18a: true
     },
 
     // Animals & Environment
@@ -135,6 +165,8 @@ export const organizations: Organization[] = [
         cause: "Environment",
         website: "https://trees.org.za/",
         imageUrl: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Food Security", "Trees", "Sustainability"],
+        section18a: true
     },
     {
         id: 19,
@@ -143,6 +175,8 @@ export const organizations: Organization[] = [
         cause: "Environment",
         website: "https://www.wwf.org.za/",
         imageUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Conservation", "Wildlife", "Nature"],
+        section18a: true
     },
     {
         id: 4,
@@ -151,6 +185,8 @@ export const organizations: Organization[] = [
         cause: "Animals",
         website: "https://www.aacl.co.za/",
         imageUrl: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Welfare", "Veterinary", "Pets"],
+        section18a: true
     },
     {
         id: 20,
@@ -159,6 +195,8 @@ export const organizations: Organization[] = [
         cause: "Animals",
         website: "https://www.four-paws.org.za/",
         imageUrl: "https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Sanctuary", "Wildlife", "Big Cats"],
+        section18a: true
     },
     {
         id: 21,
@@ -167,6 +205,8 @@ export const organizations: Organization[] = [
         cause: "Animals",
         website: "https://sanccob.co.za/",
         imageUrl: "https://images.unsplash.com/photo-1663500898288-e250f7054c16?auto=format&fit=crop&q=80&w=1000",
+        tags: ["Birds", "Conservation", "Rescue"],
+        section18a: true
     },
 ];
 
