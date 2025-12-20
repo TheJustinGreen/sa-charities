@@ -1,28 +1,36 @@
 :root {
-  /* Radiant Awareness Palette */
-  --color-bg: 222 47% 11%;
-  /* #0F172A - Deep Slate (Slate 900) */
-  --color-bg-alt: 217 33% 17%;
-  /* Slate 800 */
+  /* Radiant Awareness Palette - Luminous Dawn (Light Theme) */
+  --color-bg: 30 20% 98%;
+  /* #FAF9F6 - Warm Off-White (Paper/Light) */
+  --color-bg-alt: 30 15% 94%;
+  /* Slightly darker paper */
+
   --color-primary: 27 96% 53%;
-  /* #F97316 - Vivid Orange (Orange 500) */
+  /* #F97316 - Vivid Orange (Unchanged - pops on white) */
   --color-primary-hover: 27 96% 60%;
-  --color-text-main: 210 40% 98%;
-  /* #F8FAFC - Soft White (Slate 50) */
-  --color-text-muted: 215 20% 65%;
-  /* Slate 400 */
-  --color-accent-awareness: 53 98% 64%;
-  /* #FDE047 - Luminous Yellow (Yellow 300) */
-  --color-accent-relief: 171 66% 50%;
-  /* #2DD4BF - Teal Glow (Teal 400) */
+
+  --color-text-main: 222 47% 11%;
+  /* #0F172A - Deep Slate (High Contrast on White) */
+  --color-text-muted: 215 16% 47%;
+  /* Slate 500 */
+
+  --color-accent-awareness: 45 93% 47%;
+  /* #EAB308 - Darker Yellow/Gold for visibility on white */
+  --color-accent-relief: 171 70% 35%;
+  /* #1aa18e - Darker Teal for visibility on white */
 
   /* Effects */
-  --glass-bg: rgba(15, 23, 42, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.05),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.03);
+  /* Subtle inset border for definition */
 
-  --glow-card-hover: inset 0 0 20px rgba(253, 224, 71, 0.05), 0 20px 25px -5px rgba(249, 115, 22, 0.15);
-  --glow-text: 0 0 30px rgba(253, 224, 71, 0.2);
+  --glow-card-hover: 0 20px 25px -5px rgba(249, 115, 22, 0.1), 0 8px 10px -6px rgba(249, 115, 22, 0.05);
+  --glow-text: none;
+  /* No text shadow needed for black text on white */
 
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
 
@@ -51,15 +59,16 @@ body {
   overflow-x: hidden;
 }
 
-/* Light Leaks (Ambient Background) */
+/* Light Leaks (Ambient Background) - Adjusted for Light Mode */
 body::before {
   content: '';
   position: fixed;
   top: -20%;
   left: -10%;
   width: 50%;
-  height: 50%;
-  background: radial-gradient(circle at center, hsla(var(--color-primary), 0.15), transparent 70%);
+  height: 60%;
+  background: radial-gradient(circle at center, hsla(27, 96%, 53%, 0.08), transparent 70%);
+  /* Subtle Orange warmth */
   filter: blur(80px);
   z-index: -1;
   pointer-events: none;
@@ -72,7 +81,8 @@ body::after {
   right: -10%;
   width: 60%;
   height: 60%;
-  background: radial-gradient(circle at center, hsla(var(--color-accent-relief), 0.1), transparent 70%);
+  background: radial-gradient(circle at center, hsla(171, 66%, 50%, 0.08), transparent 70%);
+  /* Subtle Teal cooling */
   filter: blur(80px);
   z-index: -1;
   pointer-events: none;
