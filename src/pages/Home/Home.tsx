@@ -1,9 +1,10 @@
 import { useState, useMemo } from 'react'
-import Hero from '../components/Hero/Hero'
-import FilterBar from '../components/FilterBar/FilterBar'
-import OrganizationCard from '../components/OrganizationCard/OrganizationCard'
-import { organizations, causes } from '../data/organizations'
-import { Organization } from '../types'
+import Hero from '../../components/Hero/Hero'
+import FilterBar from '../../components/FilterBar/FilterBar'
+import OrganizationCard from '../../components/OrganizationCard/OrganizationCard'
+import { organizations, causes } from '../../data/organizations'
+import { Organization } from '../../types'
+import './Home.css';
 
 export default function Home() {
     const [selectedCause, setSelectedCause] = useState<string>("All");
@@ -39,7 +40,7 @@ export default function Home() {
 
     return (
         <>
-            <main style={{ paddingTop: '80px', minHeight: '100vh', paddingBottom: '4rem' }}>
+            <main className="home-main">
                 <Hero />
 
                 <section>
@@ -60,7 +61,7 @@ export default function Home() {
                         </div>
 
                         {filteredOrgs.length === 0 && (
-                            <div style={{ textAlign: 'center', padding: '4rem', color: 'hsl(var(--color-text-muted))' }} data-test="no-results-message">
+                            <div className="no-results" data-test="no-results-message">
                                 No organizations found for this category yet.
                             </div>
                         )}
@@ -68,7 +69,7 @@ export default function Home() {
                 </section>
             </main>
 
-            <footer style={{ borderTop: '1px solid var(--glass-border)', marginTop: '4rem', padding: '2rem 0', textAlign: 'center', color: 'hsl(var(--color-text-muted))', fontSize: '0.9rem' }}>
+            <footer className="site-footer">
                 <div className="container">
                     <p>© {new Date().getFullYear()} AltruisticSA. Built for Impact.</p>
                 </div>

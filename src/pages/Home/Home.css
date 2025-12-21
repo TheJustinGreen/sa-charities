@@ -1,0 +1,21 @@
+/* Home.css */
+.home-main {
+    padding-top: 80px;
+    min-height: 100vh;
+    padding-bottom: 4rem;
+}
+
+.no-results {
+    text-align: center;
+    padding: 4rem;
+    color: hsl(var(--color-text-muted));
+}
+
+.site-footer {
+    border-top: 1px solid var(--glass-border);
+    margin-top: 4rem;
+    padding: 2rem 0;
+    text-align: center;
+    color: hsl(var(--color-text-muted));
+    font-size: 0.9rem;
+}

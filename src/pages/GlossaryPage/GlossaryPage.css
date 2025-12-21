@@ -1,0 +1,89 @@
+/* GlossaryPage.css */
+.glossary-page-main {
+    padding-top: 80px;
+    min-height: 100vh;
+    padding-bottom: 4rem;
+}
+
+.intro-section {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.intro-title {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: hsl(var(--color-text-muted));
+}
+
+.content-section {
+    margin-top: 6rem;
+}
+
+.section-margin {
+    margin-top: 4rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.text-primary {
+    color: hsl(var(--color-primary));
+}
+
+.text-accent-awareness {
+    color: hsl(var(--color-accent-awareness));
+}
+
+.text-accent-relief {
+    color: hsl(var(--color-accent-relief));
+}
+
+.info-card {
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+}
+
+.info-text {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.info-text-last {
+    margin-bottom: 0;
+    line-height: 1.8;
+}
+
+.suffering-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.suffering-title {
+    margin-bottom: 1rem;
+    color: hsl(var(--color-text-main));
+}
+
+.suffering-desc {
+    color: hsl(var(--color-text-muted));
+}
+
+.tax-card {
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border-left: 4px solid hsl(var(--color-accent-relief));
+}
+
+.tax-badge-highlight {
+    font-weight: 700;
+    color: hsl(var(--color-accent-relief));
+}
