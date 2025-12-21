@@ -1,4 +1,4 @@
-import { Organization } from '../types';
+import { Organization } from '../../types';
 import './OrganizationCard.css';
 
 interface OrganizationCardProps {

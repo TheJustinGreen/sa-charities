@@ -1,15 +1,20 @@
 import { render, screen, fireEvent, within } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
 describe('App Integration', () => {
-    it('renders the header and initial organizations', () => {
-        render(<App />);
-        // Use getAllByText in case of multiple matches (e.g. brand name + meta title?)
-        // and just check one exists.
+    it('renders the header and home page content', () => {
+        render(
+            <MemoryRouter>
+                <App />
+            </MemoryRouter>
+        );
+
+        // Brand logic
         const brandElements = screen.getAllByText(/Altruistic/i);
         expect(brandElements.length).toBeGreaterThan(0);
 
-        // Check for heading regardless of line breaks
+        // Check for Home page specific content (Hero heading)
         expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
 
         // Check specific charity
@@ -17,7 +22,11 @@ describe('App Integration', () => {
     });
 
     it('filters organizations when a cause is selected', async () => {
-        render(<App />);
+        render(
+            <MemoryRouter>
+                <App />
+            </MemoryRouter>
+        );
 
         // Initial state: ensure multiple types exist
         expect(screen.getByText('Gift of the Givers')).toBeInTheDocument(); // Humanitarian
@@ -50,10 +59,5 @@ describe('App Integration', () => {
 
         expect(screen.getByText('Gift of the Givers')).toBeInTheDocument();
     });
-
-    it('renders the Glossary section', () => {
-        render(<App />);
-        expect(screen.getByText('Understanding the Suffering We Alleviate')).toBeInTheDocument();
-        expect(screen.getByText('Addresses acute suffering by providing essential resources like food, water, and shelter to those in immediate distress.')).toBeInTheDocument();
-    });
 });
+

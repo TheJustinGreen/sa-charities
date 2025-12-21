@@ -1,4 +1,4 @@
-import { CAUSE_TOOLTIPS } from "../data/organizations";
+import { CAUSE_TOOLTIPS } from "../../data/organizations";
 
 export default function Glossary() {
     // Filter out "All" as it's not a specific cause definition
