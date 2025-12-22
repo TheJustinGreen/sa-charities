@@ -11,7 +11,7 @@ export default function GlossaryPage() {
                         Understanding Our Impact
                     </h1>
                     <p className="intro-text">
-                        To effectively alleviate suffering, we must first understand it. Here we explore the core concepts that drive our mission.
+                        To effectively alleviate suffering, we must first understand it. We categorize our partner organizations not by who they help, but by the specific **type of suffering** they address—ensuring targeted, effective intervention.
                     </p>
                 </section>
 

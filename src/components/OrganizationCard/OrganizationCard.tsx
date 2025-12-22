@@ -6,12 +6,20 @@ interface OrganizationCardProps {
 }
 
 export default function OrganizationCard({ org }: OrganizationCardProps) {
-    const isAcute = org.cause === "Humanitarian" || org.cause === "Healthcare" || org.cause === "Animals";
-    const causeClass = isAcute ? 'acute' : 'relief';
+    const getCauseClass = (cause: string) => {
+        switch (cause) {
+            case "Survival": return "survival";
+            case "Safety & Freedom": return "safety-freedom";
+            case "Health": return "health";
+            case "Opportunity": return "opportunity";
+            case "Sustainability": return "sustainability";
+            default: return "relief";
+        }
+    };
 
     return (
         <article
-            className={`glass org-card ${causeClass}`}
+            className="glass org-card"
             data-test={`org-card-${org.id}`}
         >
             <div className="org-image-container">
@@ -25,19 +33,25 @@ export default function OrganizationCard({ org }: OrganizationCardProps) {
 
             <div className="org-content">
                 <div className="org-header">
-                    <div className={`cause-badge ${causeClass}`}>
-                        {org.cause}
-                    </div>
-
-                    {org.section18a && (
-                        <div
-                            className="tax-badge"
-                            title="Donations to this organization are tax deductible (Section 18A)"
-                        >
-                            <span>✓</span> Tax Cert. 18A
+                    <div className="badges-group">
+                        <div className="cause-badges-scroll">
+                            {org.causes.map(cause => (
+                                <div key={cause} className={`cause-badge ${getCauseClass(cause)}`}>
+                                    {cause}
+                                </div>
+                            ))}
                         </div>
-                    )}
+                        {org.section18a && (
+                            <div
+                                className="tax-badge"
+                                title="Donations to this organization are tax deductible (Section 18A)"
+                            >
+                                <span>✓</span> Tax Cert. 18A
+                            </div>
+                        )}
+                    </div>
                 </div>
+
 
                 <h3 className="org-name">
                     {org.name}
@@ -66,6 +80,6 @@ export default function OrganizationCard({ org }: OrganizationCardProps) {
                     Visit Website <span>→</span>
                 </a>
             </div>
-        </article>
+        </article >
     );
 }

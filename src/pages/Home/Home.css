@@ -19,3 +19,19 @@
     color: hsl(var(--color-text-muted));
     font-size: 0.9rem;
 }
+
+/* Grouping Styles */
+.type-section {
+    margin-bottom: 4rem;
+}
+
+.type-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--glass-border);
+    color: hsl(var(--color-text));
+    display: inline-block;
+    padding-right: 1rem;
+}

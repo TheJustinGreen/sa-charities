@@ -32,17 +32,18 @@ describe('App Integration', () => {
         expect(screen.getByText('Gift of the Givers')).toBeInTheDocument(); // Humanitarian
         expect(screen.getByText('Animal Anti-Cruelty League')).toBeInTheDocument(); // Animals
 
-        // Click "Animals" filter (now a button, text might be in span or direct)
-        const animalsFilter = screen.getByTestId('filter-btn-Animals');
-        fireEvent.click(animalsFilter);
+        // Click "Health" filter (was Animals)
+        const healthFilter = screen.getByTestId('filter-btn-Health');
+        fireEvent.click(healthFilter);
 
         // Verify filtering
+        // Gift of the Givers (Survival) should disappear
         expect(screen.queryByText('Gift of the Givers')).not.toBeInTheDocument();
+        // Animal Anti-Cruelty League (Health + Safety) should remain
         expect(screen.getByText('Animal Anti-Cruelty League')).toBeInTheDocument();
 
         // Verify sub-category tags appear
-        // e.g., "Welfare" should be visible when Animals is selected
-        // We scope this to the tag-filter-bar to avoiding finding the tag on the card itself
+        // "Welfare" is a tag for AACL, so it should be visible when Health is selected
         const filterBar = await screen.findByTestId('tag-filter-bar');
         expect(within(filterBar).getByText('#Welfare')).toBeInTheDocument();
 

@@ -5,11 +5,12 @@ const mockOrg = {
     id: 1,
     name: "Test Charity",
     description: "Helping the world.",
-    cause: "Humanitarian",
+    causes: ["Survival"],
     website: "https://example.com",
     imageUrl: "https://example.com/image.jpg",
     tags: ["Test", "Mock"],
-    section18a: false
+    section18a: false,
+    type: 'NPO' as const
 };
 
 describe('OrganizationCard Component', () => {
@@ -18,7 +19,7 @@ describe('OrganizationCard Component', () => {
 
         expect(screen.getByText('Test Charity')).toBeInTheDocument();
         expect(screen.getByText('Helping the world.')).toBeInTheDocument();
-        expect(screen.getByText('Humanitarian')).toBeInTheDocument();
+        expect(screen.getByText('Survival')).toBeInTheDocument();
 
         const image = screen.getByRole('img');
         expect(image).toHaveAttribute('src', mockOrg.imageUrl);

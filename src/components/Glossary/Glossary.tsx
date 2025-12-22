@@ -22,7 +22,12 @@ export default function Glossary() {
                         <div
                             className="glossary-accent"
                             style={{
-                                background: `var(--gradient-${cause === 'Humanitarian' ? 'acute' : 'systemic'})`
+                                background:
+                                    cause === 'Survival' ? 'hsl(10 90% 55%)' :
+                                        cause === 'Safety & Freedom' ? 'hsl(270 70% 60%)' :
+                                            cause === 'Health' ? 'hsl(190 80% 45%)' :
+                                                cause === 'Opportunity' ? 'hsl(45 90% 45%)' :
+                                                    'hsl(140 70% 40%)' // Sustainability
                             }}
                         />
 

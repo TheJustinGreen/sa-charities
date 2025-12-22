@@ -17,15 +17,10 @@
     transform: translateY(-5px);
 }
 
-/* Dynamic glow effects based on cause type - handled via modifier classes */
-.org-card.acute:hover {
-    border-color: hsl(var(--color-accent-awareness) / 0.5);
-    box-shadow: 0 10px 30px -5px hsl(var(--color-accent-awareness) / 0.3);
-}
-
-.org-card.relief:hover {
-    border-color: hsl(var(--color-accent-relief) / 0.5);
-    box-shadow: 0 10px 30px -5px hsl(var(--color-accent-relief) / 0.3);
+/* Glow effect on hover */
+.org-card:hover {
+    border-color: hsl(var(--color-primary) / 0.3);
+    box-shadow: 0 10px 30px -5px hsl(var(--color-primary) / 0.15);
 }
 
 .org-image-container {
@@ -78,35 +73,72 @@
     font-weight: 600;
 }
 
-.cause-badge.acute {
-    background: hsl(var(--color-accent-awareness) / 0.1);
-    color: hsl(var(--color-accent-awareness));
-    border: 1px solid hsl(var(--color-accent-awareness) / 0.2);
-    box-shadow: 0 0 10px -2px hsl(var(--color-accent-awareness) / 0.3);
+/* Semantic Cause Colors */
+.cause-badge.survival {
+    background: hsl(10 90% 55% / 0.1);
+    color: hsl(10 90% 55%);
+    border: 1px solid hsl(10 90% 55% / 0.2);
+    box-shadow: 0 0 10px -2px hsl(10 90% 55% / 0.3);
 }
 
-.cause-badge.relief {
-    background: hsl(var(--color-accent-relief) / 0.1);
-    color: hsl(var(--color-accent-relief));
-    border: 1px solid hsl(var(--color-accent-relief) / 0.2);
-    box-shadow: 0 0 10px -2px hsl(var(--color-accent-relief) / 0.3);
+.cause-badge.safety-freedom {
+    background: hsl(270 70% 60% / 0.1);
+    color: hsl(270 70% 60%);
+    border: 1px solid hsl(270 70% 60% / 0.2);
+    box-shadow: 0 0 10px -2px hsl(270 70% 60% / 0.3);
 }
+
+.cause-badge.health {
+    background: hsl(190 80% 45% / 0.1);
+    color: hsl(190 80% 45%);
+    border: 1px solid hsl(190 80% 45% / 0.2);
+    box-shadow: 0 0 10px -2px hsl(190 80% 45% / 0.3);
+}
+
+.cause-badge.opportunity {
+    background: hsl(45 90% 45% / 0.1);
+    color: hsl(45 90% 45%);
+    border: 1px solid hsl(45 90% 45% / 0.2);
+    box-shadow: 0 0 10px -2px hsl(45 90% 45% / 0.3);
+}
+
+.cause-badge.sustainability {
+    background: hsl(140 70% 40% / 0.1);
+    color: hsl(140 70% 40%);
+    border: 1px solid hsl(140 70% 40% / 0.2);
+    box-shadow: 0 0 10px -2px hsl(140 70% 40% / 0.3);
+}
+
+.badges-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Allow wrapping if many badges */
+}
+
+.cause-badges-scroll {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+/* Type badge styles removed */
 
 /* Enhanced Tax Certificate Badge */
 .tax-badge {
-    font-size: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
     font-weight: 700;
     color: hsl(var(--color-bg));
-    /* Light text on dark/bright bg */
-    border: 1px solid transparent;
-    padding: 0.3rem 0.7rem;
-    border-radius: 6px;
     background: linear-gradient(135deg, hsl(var(--color-primary)), hsl(var(--color-accent-awareness)));
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-    box-shadow: 0 2px 8px -1px hsl(var(--color-primary) / 0.4);
+    gap: 0.25rem;
+    box-shadow: 0 2px 4px -1px hsl(var(--color-primary) / 0.3);
     letter-spacing: 0.02em;
+    height: fit-content;
 }
 
 .tax-badge span {

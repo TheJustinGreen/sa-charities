@@ -27,7 +27,7 @@ describe('Home Page', () => {
                 <Home />
             </MemoryRouter>
         );
-        const grid = screen.getByTestId('org-grid');
+        const grid = screen.getByTestId('org-grid-NPO');
         expect(grid).not.toBeEmptyDOMElement();
     });
 

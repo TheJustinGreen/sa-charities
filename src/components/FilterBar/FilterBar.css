@@ -31,16 +31,24 @@
 
 .filter-btn.active {
     border-color: hsl(var(--color-primary));
-    background-color: hsl(var(--color-primary) / 0.1);
-    color: hsl(var(--color-primary));
-    box-shadow: 0 0 15px -3px hsl(var(--color-primary) / 0.3);
+    background-color: hsl(var(--color-primary));
+    color: white;
+    box-shadow: 0 4px 12px -2px hsl(var(--color-primary) / 0.4);
+    transform: translateY(-1px);
 }
 
 .filter-btn.inactive {
-    border-color: var(--glass-border);
-    background-color: transparent;
-    color: hsl(var(--color-text-muted));
-    box-shadow: none;
+    border-color: #e2e8f0;
+    background-color: #f8fafc;
+    color: hsl(var(--color-text-main));
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn.inactive:hover {
+    border-color: hsl(var(--color-primary) / 0.5);
+    background-color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .filter-tags {

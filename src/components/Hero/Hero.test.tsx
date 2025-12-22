@@ -6,6 +6,6 @@ describe('Hero Component', () => {
         render(<Hero />);
         expect(screen.getByText(/Alleviate Suffering/i)).toBeInTheDocument();
         expect(screen.getByText(/Act Today/i)).toBeInTheDocument();
-        expect(screen.getByText(/Moving beyond/i)).toBeInTheDocument();
+        expect(screen.getByText(/Raising awareness/i)).toBeInTheDocument();
     });
 });

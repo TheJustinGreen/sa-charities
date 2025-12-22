@@ -14,7 +14,7 @@ export default function Home() {
         if (selectedCause === "All") return [];
         const tags = new Set<string>();
         organizations
-            .filter(org => org.cause === selectedCause)
+            .filter(org => org.causes.includes(selectedCause))
             .forEach(org => org.tags.forEach(tag => tags.add(tag)));
         return Array.from(tags).sort();
     }, [selectedCause]);
@@ -23,7 +23,7 @@ export default function Home() {
         let filtered = organizations;
 
         if (selectedCause !== "All") {
-            filtered = filtered.filter(org => org.cause === selectedCause);
+            filtered = filtered.filter(org => org.causes.includes(selectedCause));
         }
 
         if (selectedTag) {
@@ -54,13 +54,32 @@ export default function Home() {
                     />
 
                     <div className="container">
-                        <div className="grid-cards animate-fade-in" key={selectedCause} data-test="org-grid">
-                            {filteredOrgs.map(org => (
-                                <OrganizationCard key={org.id} org={org} />
-                            ))}
-                        </div>
-
-                        {filteredOrgs.length === 0 && (
+                        {filteredOrgs.length > 0 ? (
+                            Object.entries(
+                                filteredOrgs.reduce((acc, org) => {
+                                    const type = org.type || 'NPO'; // Default to NPO
+                                    if (!acc[type]) acc[type] = [];
+                                    acc[type].push(org);
+                                    return acc;
+                                }, {} as Record<string, Organization[]>)
+                            )
+                                .sort(([typeA], [typeB]) => {
+                                    // Specific order: NPO first, then others
+                                    if (typeA === 'NPO') return -1;
+                                    if (typeB === 'NPO') return 1;
+                                    return typeA.localeCompare(typeB);
+                                })
+                                .map(([type, orgs]) => (
+                                    <div key={type} className="type-section animate-fade-in">
+                                        <h2 className="type-heading">{type === 'NPO' ? 'Non-Profit Organizations' : type === 'Social Enterprise' ? 'Social Enterprises' : 'Businesses'}</h2>
+                                        <div className="grid-cards" data-test={`org-grid-${type}`}>
+                                            {orgs.map(org => (
+                                                <OrganizationCard key={org.id} org={org} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))
+                        ) : (
                             <div className="no-results" data-test="no-results-message">
                                 No organizations found for this category yet.
                             </div>
