@@ -29,8 +29,8 @@ describe('GlossaryPage', () => {
                 <GlossaryPage />
             </MemoryRouter>
         );
-        expect(screen.getByText('Effective Altruism')).toBeInTheDocument();
-        expect(screen.getByText('Understanding Suffering')).toBeInTheDocument();
+        expect(screen.getAllByText(/Effective Altruism/i)[0]).toBeInTheDocument();
+        expect(screen.getByText(/Understanding Suffering/i)).toBeInTheDocument();
         expect(screen.getByText(/Section 18A Tax Certificate/i)).toBeInTheDocument();
     });
 });

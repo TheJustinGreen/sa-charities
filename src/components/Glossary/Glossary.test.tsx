@@ -2,19 +2,14 @@ import { render, screen } from '@testing-library/react';
 import Glossary from './Glossary';
 
 describe('Glossary Component', () => {
-    it('renders the glossary title', () => {
-        render(<Glossary />);
-        expect(screen.getByText('Understanding the Suffering We Alleviate')).toBeInTheDocument();
-    });
-
     it('renders definition cards for causes', () => {
         render(<Glossary />);
         // Check for a few key definitions
         expect(screen.getByText('Survival')).toBeInTheDocument();
-        expect(screen.getByText(/addressing immediate threats/i)).toBeInTheDocument();
+        expect(screen.queryByText(/addressing immediate threats/i)).not.toBeInTheDocument();
 
         expect(screen.getByText('Sustainability')).toBeInTheDocument();
-        expect(screen.getByText(/Preserving the biosphere/i)).toBeInTheDocument();
+        expect(screen.queryByText(/Preserving the biosphere/i)).not.toBeInTheDocument();
     });
 
     it('does not render "All" category', () => {

@@ -11,7 +11,7 @@ export default function GlossaryPage() {
                         Understanding Our Impact
                     </h1>
                     <p className="intro-text">
-                        To effectively alleviate suffering, we must first understand it. We categorize our partner organizations not by who they help, but by the specific **type of suffering** they address—ensuring targeted, effective intervention.
+                        To effectively alleviate suffering, we must first understand it. We categorize our partner organizations not by who they help, but by the specific <strong>type of suffering</strong> they address—ensuring targeted, effective intervention.
                     </p>
                 </section>
 
@@ -23,7 +23,7 @@ export default function GlossaryPage() {
                     </h2>
                     <div className="glass info-card">
                         <p className="info-text">
-                            **Effective Altruism** is a philosophy and social movement that advocates using evidence and reason to determine the most effective ways to benefit others. It's not just about doing good; it's about doing the *most* good we can with the resources we have.
+                            <strong>Effective Altruism</strong> is a philosophy and social movement that advocates using evidence and reason to determine the most effective ways to benefit others. It's not just about doing good; it's about doing the <em>most</em> good we can with the resources we have.
                         </p>
                         <p className="info-text">
                             By analyzing data and focusing on high-impact areas—such as global health, poverty alleviation, and animal welfare—we can ensure that every donation saves more lives and reduces more suffering than it would elsewhere.
@@ -62,7 +62,7 @@ export default function GlossaryPage() {
                     </h2>
                     <div className="glass tax-card">
                         <p className="info-text">
-                            A **Section 18A certificate** is a receipt issued by an actively registered Public Benefit Organisation (PBO) in South Africa. This certificate allows you, as a taxpayer (individual or corporate), to deduct the value of your donation from your taxable income.
+                            A <strong>Section 18A certificate</strong> is a receipt issued by an actively registered Public Benefit Organisation (PBO) in South Africa. This certificate allows you, as a taxpayer (individual or corporate), to deduct the value of your donation from your taxable income.
                         </p>
                         <p className="info-text-last">
                             By donating to organizations that issue Section 18A certificates, you effectively lower the cost of your donation, allowing you to give more for the same net cost to yourself. Look for the <span className="tax-badge-highlight">✓ Tax Cert. 18A</span> badge on our organization cards.

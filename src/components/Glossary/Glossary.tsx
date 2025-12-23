@@ -7,12 +7,10 @@ export default function Glossary() {
 
     return (
         <section className="container glossary-section" data-test="glossary-section">
-            <h2 className="glossary-title">
-                Understanding the Suffering We Alleviate
-            </h2>
+
 
             <div className="glossary-grid" data-test="glossary-grid">
-                {definitions.map(([cause, definition]) => (
+                {definitions.map(([cause]) => (
                     <div
                         key={cause}
                         className="glass glossary-card"
@@ -34,9 +32,7 @@ export default function Glossary() {
                         <h3 className="glossary-card-title">
                             {cause}
                         </h3>
-                        <p className="glossary-card-text">
-                            {definition}
-                        </p>
+
                     </div>
                 ))}
             </div>

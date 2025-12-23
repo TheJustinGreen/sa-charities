@@ -2,8 +2,9 @@ import { useState, useMemo } from 'react'
 import Hero from '../../components/Hero/Hero'
 import FilterBar from '../../components/FilterBar/FilterBar'
 import OrganizationCard from '../../components/OrganizationCard/OrganizationCard'
-import { organizations, causes } from '../../data/organizations'
+import { organizations, causes, CAUSE_TOOLTIPS } from '../../data/organizations'
 import { Organization } from '../../types'
+import CollapsibleSection from '../../components/CollapsibleSection/CollapsibleSection'
 import './Home.css';
 
 export default function Home() {
@@ -54,6 +55,21 @@ export default function Home() {
                     />
 
                     <div className="container">
+                        {selectedCause !== "All" && (
+                            <div className="cause-header animate-fade-in">
+                                <p className="cause-description" style={{
+                                    fontSize: '1.2rem',
+                                    fontStyle: 'italic',
+                                    color: 'var(--text-secondary)',
+                                    textAlign: 'center',
+                                    maxWidth: '800px',
+                                    margin: '0 auto'
+                                }}>
+                                    {CAUSE_TOOLTIPS[selectedCause]}
+                                </p>
+                            </div>
+                        )}
+
                         {filteredOrgs.length > 0 ? (
                             Object.entries(
                                 filteredOrgs.reduce((acc, org) => {
@@ -70,14 +86,17 @@ export default function Home() {
                                     return typeA.localeCompare(typeB);
                                 })
                                 .map(([type, orgs]) => (
-                                    <div key={type} className="type-section animate-fade-in">
-                                        <h2 className="type-heading">{type === 'NPO' ? 'Non-Profit Organizations' : type === 'Social Enterprise' ? 'Social Enterprises' : 'Businesses'}</h2>
+                                    <CollapsibleSection
+                                        key={type}
+                                        title={type === 'NPO' ? 'Non-Profit Organizations' : type === 'Social Enterprise' ? 'Social Enterprises' : 'Businesses'}
+                                        className="animate-fade-in"
+                                    >
                                         <div className="grid-cards" data-test={`org-grid-${type}`}>
                                             {orgs.map(org => (
                                                 <OrganizationCard key={org.id} org={org} />
                                             ))}
                                         </div>
-                                    </div>
+                                    </CollapsibleSection>
                                 ))
                         ) : (
                             <div className="no-results" data-test="no-results-message">
@@ -86,7 +105,7 @@ export default function Home() {
                         )}
                     </div>
                 </section>
-            </main>
+            </main >
 
             <footer className="site-footer">
                 <div className="container">
