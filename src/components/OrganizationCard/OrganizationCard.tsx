@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Organization } from '../../types';
 import './OrganizationCard.css';
 
@@ -6,6 +7,11 @@ interface OrganizationCardProps {
 }
 
 export default function OrganizationCard({ org }: OrganizationCardProps) {
+    const [isLoading, setIsLoading] = useState(true);
+
+    const handleImageLoad = () => {
+        setIsLoading(false);
+    };
     const getCauseClass = (cause: string) => {
         switch (cause) {
             case "Survival": return "survival";
@@ -23,10 +29,13 @@ export default function OrganizationCard({ org }: OrganizationCardProps) {
             data-test={`org-card-${org.id}`}
         >
             <div className="org-image-container">
+                {isLoading && <div className="org-image-skeleton" />}
                 <img
                     src={org.imageUrl}
                     alt={org.name}
-                    className="org-image"
+                    className={`org-image ${isLoading ? 'loading' : 'loaded'}`}
+                    onLoad={handleImageLoad}
+                    loading="lazy"
                 />
                 <div className="org-overlay" />
             </div>

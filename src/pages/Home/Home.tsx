@@ -4,6 +4,7 @@ import FilterBar from '../../components/FilterBar/FilterBar'
 import OrganizationCard from '../../components/OrganizationCard/OrganizationCard'
 import { organizations, causes } from '../../data/organizations'
 import { Organization } from '../../types'
+import CollapsibleSection from '../../components/CollapsibleSection/CollapsibleSection'
 import './Home.css';
 
 export default function Home() {
@@ -70,14 +71,17 @@ export default function Home() {
                                     return typeA.localeCompare(typeB);
                                 })
                                 .map(([type, orgs]) => (
-                                    <div key={type} className="type-section animate-fade-in">
-                                        <h2 className="type-heading">{type === 'NPO' ? 'Non-Profit Organizations' : type === 'Social Enterprise' ? 'Social Enterprises' : 'Businesses'}</h2>
+                                    <CollapsibleSection
+                                        key={type}
+                                        title={type === 'NPO' ? 'Non-Profit Organizations' : type === 'Social Enterprise' ? 'Social Enterprises' : 'Businesses'}
+                                        className="animate-fade-in"
+                                    >
                                         <div className="grid-cards" data-test={`org-grid-${type}`}>
                                             {orgs.map(org => (
                                                 <OrganizationCard key={org.id} org={org} />
                                             ))}
                                         </div>
-                                    </div>
+                                    </CollapsibleSection>
                                 ))
                         ) : (
                             <div className="no-results" data-test="no-results-message">
