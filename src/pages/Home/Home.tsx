@@ -24,25 +24,26 @@ export default function Home() {
     const filteredOrgs = useMemo<Organization[]>(() => {
         let filtered = organizations;
 
-        // Cause filter
+        // 1. Cause Filter
         if (selectedCause !== "All") {
             filtered = filtered.filter(org => org.causes.includes(selectedCause));
         }
 
-        // Tag filter
-        if (selectedTag) {
-            filtered = filtered.filter(org => org.tags.includes(selectedTag));
-        }
-
-        // Search filter
+        // 2. Search Filter
         if (searchTerm.trim()) {
             const term = searchTerm.toLowerCase().trim();
             filtered = filtered.filter(org =>
                 org.name.toLowerCase().includes(term) ||
                 org.description.toLowerCase().includes(term) ||
                 org.tags.some(tag => tag.toLowerCase().includes(term)) ||
-                org.causes.some(cause => cause.toLowerCase().includes(term))
+                org.causes.some(cause => cause.toLowerCase().includes(term)) ||
+                org.keywords?.some(keyword => keyword.toLowerCase().includes(term))
             );
+        }
+
+        // 3. Tag Filter
+        if (selectedTag) {
+            filtered = filtered.filter(org => org.tags.includes(selectedTag));
         }
 
         return filtered;

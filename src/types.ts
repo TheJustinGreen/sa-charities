@@ -6,6 +6,7 @@ export interface Organization {
     website: string;
     imageUrl: string;
     tags: string[];
+    keywords?: string[];
     section18a: boolean;
     type: 'NPO' | 'Business' | 'Social Enterprise';
 }

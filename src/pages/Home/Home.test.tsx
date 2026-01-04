@@ -63,4 +63,24 @@ describe('Home Page', () => {
         // Expect description to appear
         expect(screen.getByText(/Addressing immediate threats to life/i)).toBeInTheDocument();
     });
+
+    it('respects category scope when searching', () => {
+        render(
+            <MemoryRouter>
+                <Home />
+            </MemoryRouter>
+        );
+
+        // 1. Switch to "Survival"
+        const survivalBtn = screen.getByRole('button', { name: /Survival/i });
+        fireEvent.click(survivalBtn);
+
+        // 2. Search for "rape" (which is a Safety issue, NOT Survival)
+        const searchInput = screen.getByPlaceholderText(/search/i);
+        fireEvent.change(searchInput, { target: { value: 'rape' } });
+
+        // 3. Should show NO results (because "rape" organizations are in Safety & Justice)
+        expect(screen.getByText(/No organizations match your search/i)).toBeInTheDocument();
+        expect(screen.queryByText(/Rape Crisis/i)).not.toBeInTheDocument();
+    });
 });

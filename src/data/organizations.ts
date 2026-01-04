@@ -10,6 +10,7 @@ export const organizations: Organization[] = [
         website: "https://giftofthegivers.org/",
         imageUrl: "/orgs/gift-of-the-givers.png",
         tags: ["Emergency Response", "Food Security", "Essential Resources (Water/Sanitation)"],
+        keywords: ["hunger", "starvation", "disaster", "relief", "food"],
         section18a: true,
         type: 'NPO'
     },
@@ -67,6 +68,7 @@ export const organizations: Organization[] = [
         website: "https://actionaid.org.za/",
         imageUrl: "/orgs/action-aid.jpg",
         tags: ["Gender-Based Violence (GBV)", "Child Protection", "Legal Advocacy & Justice"],
+        keywords: ["women", "rights", "abuse", "poverty", "injustice"],
         section18a: true,
         type: 'NPO'
     },
@@ -89,6 +91,7 @@ export const organizations: Organization[] = [
         website: "https://tears.co.za",
         imageUrl: "/orgs/tears.jpg",
         tags: ["Gender-Based Violence (GBV)", "Mental Health & Trauma", "Emergency Response"],
+        keywords: ["rape", "sexual abuse", "crisis", "assault", "women", "help"],
         section18a: true,
         type: 'NPO'
     },
@@ -100,6 +103,7 @@ export const organizations: Organization[] = [
         website: "https://www.mosaic.org.za",
         imageUrl: "/orgs/mosaic.png",
         tags: ["Gender-Based Violence (GBV)", "Legal Advocacy & Justice", "Mental Health & Trauma"],
+        keywords: ["domestic violence", "women", "abuse", "healing", "court"],
         section18a: true,
         type: 'NPO'
     },
@@ -111,6 +115,7 @@ export const organizations: Organization[] = [
         website: "https://www.saartjiebaartmancentre.org.za",
         imageUrl: "/orgs/saartjie.jpg",
         tags: ["Gender-Based Violence (GBV)", "Housing & Shelter", "Child Protection"],
+        keywords: ["shelter", "domestic violence", "women", "children", "abuse"],
         section18a: true,
         type: 'NPO'
     },
@@ -122,6 +127,7 @@ export const organizations: Organization[] = [
         website: "https://rapecrisis.org.za",
         imageUrl: "/orgs/rapecrisis.jpg",
         tags: ["Gender-Based Violence (GBV)", "Legal Advocacy & Justice", "Mental Health & Trauma"],
+        keywords: ["rape", "survivors", "counseling", "court", "justice"],
         section18a: true,
         type: 'NPO'
     },
@@ -157,6 +163,7 @@ export const organizations: Organization[] = [
         website: "https://www.sadag.org/",
         imageUrl: "/orgs/sadag.png",
         tags: ["Mental Health & Trauma"],
+        keywords: ["depression", "anxiety", "suicide", "counseling", "help"],
         section18a: true,
         type: 'NPO'
     },
@@ -168,6 +175,7 @@ export const organizations: Organization[] = [
         website: "https://www.msf.org.za/",
         imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000",
         tags: ["Healthcare Services", "Emergency Response", "Serious & Chronic Illness"],
+        keywords: ["hiv", "tb", "medical", "doctors", "emergency"],
         section18a: true,
         type: 'NPO'
     },
@@ -269,6 +277,7 @@ export const organizations: Organization[] = [
         website: "https://breadlineafrica.org/",
         imageUrl: "/orgs/breadline.png",
         tags: ["Education & Literacy", "Community Spaces", "Essential Resources (Water/Sanitation)"],
+        keywords: ["kitchens", "toilets", "infrastructure", "schools"],
         section18a: true,
         type: 'NPO'
     },
