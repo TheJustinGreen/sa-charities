@@ -42,7 +42,8 @@ describe('Home Page', () => {
         // or just verify the container exists for now,
         // as actual logic is tested in integration.
         // Check initial state (All)
-        expect(screen.queryByText(/Interventions addressing immediate threats/i)).not.toBeInTheDocument();
+        // Check initial state (All)
+        expect(screen.queryByText(/Addressing immediate threats to life/i)).not.toBeInTheDocument();
     });
 
     it('shows cause description and tags when a cause is selected', () => {
@@ -53,13 +54,13 @@ describe('Home Page', () => {
         );
 
         // Check initial state (All)
-        expect(screen.queryByText(/Interventions addressing immediate threats/i)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Addressing immediate threats to life/i)).not.toBeInTheDocument();
 
         // Find and click the 'Survival' filter button
         const survivalBtn = screen.getByRole('button', { name: /Survival/i });
         fireEvent.click(survivalBtn);
 
         // Expect description to appear
-        expect(screen.getByText(/Interventions addressing immediate threats/i)).toBeInTheDocument();
+        expect(screen.getByText(/Addressing immediate threats to life/i)).toBeInTheDocument();
     });
 });

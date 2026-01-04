@@ -3,25 +3,27 @@ import FilterBar from './FilterBar';
 
 describe('FilterBar Component', () => {
     const defaultProps = {
-        causes: ['All', 'Humanitarian', 'Environment'],
+        causes: ['All', 'Survival', 'Sustainability'],
         selectedCause: 'All',
         onSelectCause: vi.fn(),
         availableTags: [],
         selectedTag: null,
-        onSelectTag: vi.fn()
+        onSelectTag: vi.fn(),
+        searchTerm: '',
+        onSearchChange: vi.fn()
     };
 
     it('renders cause buttons', () => {
         render(<FilterBar {...defaultProps} />);
         expect(screen.getByText('All')).toBeInTheDocument();
-        expect(screen.getByText('Humanitarian')).toBeInTheDocument();
+        expect(screen.getByText('Survival')).toBeInTheDocument();
     });
 
     it('calls onSelectCause when a cause is clicked', () => {
         render(<FilterBar {...defaultProps} />);
-        const btn = screen.getByText('Humanitarian');
+        const btn = screen.getByText('Survival');
         fireEvent.click(btn);
-        expect(defaultProps.onSelectCause).toHaveBeenCalledWith('Humanitarian');
+        expect(defaultProps.onSelectCause).toHaveBeenCalledWith('Survival');
     });
 
     it('renders tags when availableTags provided', () => {
@@ -35,5 +37,12 @@ describe('FilterBar Component', () => {
         const tag = screen.getByText('#Tag1');
         fireEvent.click(tag);
         expect(defaultProps.onSelectTag).toHaveBeenCalledWith('Tag1');
+    });
+
+    it('calls onSearchChange when input changes', () => {
+        render(<FilterBar {...defaultProps} />);
+        const input = screen.getByPlaceholderText(/search/i);
+        fireEvent.change(input, { target: { value: 'water' } });
+        expect(defaultProps.onSearchChange).toHaveBeenCalledWith('water');
     });
 });

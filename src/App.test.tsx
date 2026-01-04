@@ -29,30 +29,30 @@ describe('App Integration', () => {
         );
 
         // Initial state: ensure multiple types exist
-        expect(screen.getByText('Gift of the Givers')).toBeInTheDocument(); // Humanitarian
-        expect(screen.getByText('Animal Anti-Cruelty League')).toBeInTheDocument(); // Animals
+        expect(screen.getByText('Gift of the Givers')).toBeInTheDocument(); // Survival
+        expect(screen.getByText('SADAG')).toBeInTheDocument(); // Health & Wellbeing
 
-        // Click "Health" filter (was Animals)
-        const healthFilter = screen.getByTestId('filter-btn-Health');
+        // Click "Health & Wellbeing" filter
+        const healthFilter = screen.getByTestId('filter-btn-Health & Wellbeing');
         fireEvent.click(healthFilter);
 
         // Verify filtering
         // Gift of the Givers (Survival) should disappear
         expect(screen.queryByText('Gift of the Givers')).not.toBeInTheDocument();
-        // Animal Anti-Cruelty League (Health + Safety) should remain
-        expect(screen.getByText('Animal Anti-Cruelty League')).toBeInTheDocument();
+        // SADAG (Health & Wellbeing) should remain
+        expect(screen.getByText('SADAG')).toBeInTheDocument();
 
         // Verify sub-category tags appear
-        // "Welfare" is a tag for AACL, so it should be visible when Health is selected
+        // "Serious & Chronic Illness" is a tag for CANSA/SADAG... wait let's check SADAG tags: "Mental Health & Trauma"
         const filterBar = await screen.findByTestId('tag-filter-bar');
-        expect(within(filterBar).getByText('#Welfare')).toBeInTheDocument();
+        expect(within(filterBar).getByText('#Mental Health & Trauma')).toBeInTheDocument();
 
-        // Click a tag "Welfare"
-        const welfareTag = within(filterBar).getByText('#Welfare');
-        fireEvent.click(welfareTag);
+        // Click a tag
+        const tag = within(filterBar).getByText('#Mental Health & Trauma');
+        fireEvent.click(tag);
 
-        // Should still show Animal Anti-Cruelty League
-        expect(screen.getByText('Animal Anti-Cruelty League')).toBeInTheDocument();
+        // Should still show SADAG
+        expect(screen.getByText('SADAG')).toBeInTheDocument();
 
         // Click "All" to reset
         const allFilter = screen.getByTestId('filter-btn-All');
@@ -61,4 +61,3 @@ describe('App Integration', () => {
         expect(screen.getByText('Gift of the Givers')).toBeInTheDocument();
     });
 });
-

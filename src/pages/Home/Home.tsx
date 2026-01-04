@@ -10,6 +10,7 @@ import './Home.css';
 export default function Home() {
     const [selectedCause, setSelectedCause] = useState<string>("All");
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
+    const [searchTerm, setSearchTerm] = useState<string>("");
 
     const availableTags = useMemo(() => {
         if (selectedCause === "All") return [];
@@ -23,16 +24,29 @@ export default function Home() {
     const filteredOrgs = useMemo<Organization[]>(() => {
         let filtered = organizations;
 
+        // Cause filter
         if (selectedCause !== "All") {
             filtered = filtered.filter(org => org.causes.includes(selectedCause));
         }
 
+        // Tag filter
         if (selectedTag) {
             filtered = filtered.filter(org => org.tags.includes(selectedTag));
         }
 
+        // Search filter
+        if (searchTerm.trim()) {
+            const term = searchTerm.toLowerCase().trim();
+            filtered = filtered.filter(org =>
+                org.name.toLowerCase().includes(term) ||
+                org.description.toLowerCase().includes(term) ||
+                org.tags.some(tag => tag.toLowerCase().includes(term)) ||
+                org.causes.some(cause => cause.toLowerCase().includes(term))
+            );
+        }
+
         return filtered;
-    }, [selectedCause, selectedTag]);
+    }, [selectedCause, selectedTag, searchTerm]);
 
     const handleCauseSelect = (cause: string) => {
         setSelectedCause(cause);
@@ -52,6 +66,8 @@ export default function Home() {
                         availableTags={availableTags}
                         selectedTag={selectedTag}
                         onSelectTag={setSelectedTag}
+                        searchTerm={searchTerm}
+                        onSearchChange={setSearchTerm}
                     />
 
                     <div className="container">
@@ -100,7 +116,7 @@ export default function Home() {
                                 ))
                         ) : (
                             <div className="no-results" data-test="no-results-message">
-                                No organizations found for this category yet.
+                                {searchTerm ? "No organizations match your search." : "No organizations found for this category yet."}
                             </div>
                         )}
                     </div>

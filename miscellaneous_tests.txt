@@ -1,0 +1,127 @@
+yarn run v1.22.22
+$ vitest run src/App.test.tsx src/components/Glossary/Glossary.test.tsx
+
+[1m[46m RUN [49m[22m [36mv4.0.16 [39m[90mC:/Users/ascentraland/Side/Altruistic[39m
+
+ [32m✓[39m src/components/Glossary/Glossary.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 225[2mms[22m[39m
+ [31m❯[39m src/App.test.tsx [2m([22m[2m2 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 1136[2mms[22m[39m
+     [33m[2m✓[22m[39m renders the header and home page content [33m 794[2mms[22m[39m
+[31m     [31m×[31m filters organizations when a cause is selected[39m[33m 339[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/App.test.tsx[2m > [22mApp Integration[2m > [22mfilters organizations when a cause is selected
+[31m[1mTestingLibraryElementError[22m: Unable to find an element with the text: #Welfare. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<div[31m
+  [33mclass[31m=[32m"filter-tags"[31m
+  [33mdata-test[31m=[32m"tag-filter-bar"[31m
+[36m>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mAnimal Health[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mAnimal Welfare[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mCommunity Support[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mDisaster Response[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mEmergency Aid[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mEntrepreneurship[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mGender-Based Violence[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mHealthcare Services[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mMaternal & Child[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mMental Health[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mSerious Illness[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mTech Skills[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mWaste Management[0m
+  [36m</button>[31m
+  [36m<button[31m
+    [33mclass[31m=[32m"glass tag-btn inactive"[31m
+  [36m>[31m
+    [0m#[0m
+    [0mWater Access[0m
+  [36m</button>[31m
+[36m</div>[31m[39m
+[90m [2m❯[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m76:38[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m52:17[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+[36m [2m❯[22m src/App.test.tsx:[2m48:34[22m[39m
+    [90m 46| [39m        // "Welfare" is a tag for AACL, so it should be visible when H…
+    [90m 47| [39m        [35mconst[39m filterBar [33m=[39m [35mawait[39m screen[33m.[39m[34mfindByTestId[39m([32m'tag-filter-bar'[39m)[33m;[39m
+    [90m 48| [39m        expect(within(filterBar).getByText('#Welfare')).toBeInTheDocum…
+    [90m   | [39m                                 [31m^[39m
+    [90m 49| [39m
+    [90m 50| [39m        [90m// Click a tag "Welfare"[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m4 passed[39m[22m[90m (5)[39m
+[2m   Start at [22m 16:02:59
+[2m   Duration [22m 4.21s[2m (transform 562ms, setup 1.21s, import 629ms, tests 1.36s, environment 3.22s)[22m
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

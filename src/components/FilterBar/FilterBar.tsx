@@ -8,6 +8,8 @@ interface FilterBarProps {
     availableTags: string[];
     selectedTag: string | null;
     onSelectTag: (tag: string | null) => void;
+    searchTerm: string;
+    onSearchChange: (term: string) => void;
 }
 
 import './FilterBar.css';
@@ -27,10 +29,24 @@ export default function FilterBar({
     onSelectCause,
     availableTags = [],
     selectedTag,
-    onSelectTag
+    onSelectTag,
+    searchTerm,
+    onSearchChange
 }: FilterBarProps) {
     return (
         <div className="container filter-bar-container" data-test="filter-bar">
+            {/* Search Input */}
+            <div className="search-container animate-fade-in">
+                <input
+                    type="text"
+                    placeholder="Search for a cause or problem (e.g., 'water', 'animals')..."
+                    value={searchTerm}
+                    onChange={(e) => onSearchChange(e.target.value)}
+                    className="glass search-input"
+                    data-test="search-input"
+                />
+            </div>
+
             {/* Main Categories */}
             <div className="filter-categories">
                 {causes.map(cause => (
