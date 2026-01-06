@@ -10,7 +10,8 @@ describe('FilterBar Component', () => {
         selectedTag: null,
         onSelectTag: vi.fn(),
         searchTerm: '',
-        onSearchChange: vi.fn()
+        onSearchChange: vi.fn(),
+        onSearchSubmit: vi.fn()
     };
 
     it('renders cause buttons', () => {
@@ -44,5 +45,12 @@ describe('FilterBar Component', () => {
         const input = screen.getByPlaceholderText(/search/i);
         fireEvent.change(input, { target: { value: 'water' } });
         expect(defaultProps.onSearchChange).toHaveBeenCalledWith('water');
+    });
+
+    it('calls onSearchSubmit when Enter key is pressed', () => {
+        render(<FilterBar {...defaultProps} />);
+        const input = screen.getByPlaceholderText(/search/i);
+        fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
+        expect(defaultProps.onSearchSubmit).toHaveBeenCalled();
     });
 });

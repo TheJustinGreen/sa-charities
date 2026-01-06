@@ -21,6 +21,9 @@ interface FilterBarProps {
     availableTags: string[];
     selectedTag: string | null;
     onSelectTag: (tag: string | null) => void;
+    searchTerm: string;
+    onSearchChange: (term: string) => void;
+    onSearchSubmit: () => void;
 }
 
 export default function FilterBar({
@@ -31,17 +34,26 @@ export default function FilterBar({
     selectedTag,
     onSelectTag,
     searchTerm,
-    onSearchChange
+    onSearchChange,
+    onSearchSubmit
 }: FilterBarProps) {
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            onSearchSubmit();
+            (e.target as HTMLInputElement).blur(); // Dismiss keyboard on mobile
+        }
+    };
+
     return (
         <div className="container filter-bar-container" data-test="filter-bar">
             {/* Search Input */}
             <div className="search-container animate-fade-in">
                 <input
                     type="text"
-                    placeholder="Search for a cause or problem (e.g., 'water', 'animals')..."
+                    placeholder="Search by problem"
                     value={searchTerm}
                     onChange={(e) => onSearchChange(e.target.value)}
+                    onKeyDown={handleKeyDown}
                     className="glass search-input"
                     data-test="search-input"
                 />

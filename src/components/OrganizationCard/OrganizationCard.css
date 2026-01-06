@@ -87,6 +87,12 @@
     flex-direction: column;
 }
 
+@media (max-width: 640px) {
+    .org-content {
+        padding: 1rem;
+    }
+}
+
 .org-header {
     display: flex;
     justify-content: space-between;

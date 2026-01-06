@@ -10,3 +10,15 @@
     max-width: 600px;
     margin: 1.5rem auto;
 }
+
+@media (max-width: 768px) {
+    .hero-container {
+        padding: 4rem 0 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.125rem;
+        margin: 1rem auto;
+        padding: 0 1rem;
+    }
+}

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import Hero from '../../components/Hero/Hero'
 import FilterBar from '../../components/FilterBar/FilterBar'
 import OrganizationCard from '../../components/OrganizationCard/OrganizationCard'
@@ -11,6 +11,7 @@ export default function Home() {
     const [selectedCause, setSelectedCause] = useState<string>("All");
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const resultsRef = useRef<HTMLDivElement>(null);
 
     const availableTags = useMemo(() => {
         if (selectedCause === "All") return [];
@@ -54,6 +55,12 @@ export default function Home() {
         setSelectedTag(null);
     };
 
+    const handleSearchSubmit = () => {
+        if (resultsRef.current) {
+            resultsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     return (
         <>
             <main className="home-main">
@@ -69,9 +76,10 @@ export default function Home() {
                         onSelectTag={setSelectedTag}
                         searchTerm={searchTerm}
                         onSearchChange={setSearchTerm}
+                        onSearchSubmit={handleSearchSubmit}
                     />
 
-                    <div className="container">
+                    <div className="container" ref={resultsRef}>
                         {selectedCause !== "All" && (
                             <div className="cause-header animate-fade-in">
                                 <p className="cause-description" style={{
